@@ -2,10 +2,63 @@ package mx.itesm.tacos_de_tinga_19.veintiundias
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        configurarMenu()
     }
+
+    private fun configurarFragmentoInicio(){
+        // val fragHome = HomeFrag()
+        // cambiarFragmento(fragHome)
+    }
+
+    private fun configurarMenu() {
+        binding.menuNavegacion.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.navPerfil -> {
+                    println("Perfil")
+                    //val fragHome = HomeFrag()
+                    //cambiarFragmento(fragHome)
+                }
+                R.id.navHabitos -> {
+                    println("Habitos")
+                    // val fragTablero = TableroFrag()
+                    // cambiarFragmento(fragTablero)
+                }
+                R.id.navCalendario -> {
+                    println("Calendario")
+                    // val fragNotificaciones = NotificacionesFrag()
+                    // cambiarFragmento(fragNotificaciones)
+                }
+                R.id.navMusica -> {
+                    println("Musica")
+                    // val fragTablero = AcercaDeFrag()
+                    // cambiarFragmento(fragTablero)
+                }
+            }
+
+            true
+        }
+    }
+
+    private fun cambiarFragmento(fragmento: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.contenedorFragmentos.id, fragmento)
+            .addToBackStack(null)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+            .commit()
+    }
+
 }
