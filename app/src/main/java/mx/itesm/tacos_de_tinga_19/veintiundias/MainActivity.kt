@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.ActivityMainBinding
 
+// Autor: Bruno Hae sal Vázquez Hwang
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -39,8 +41,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navCalendario -> {
                     println("Calendario")
-                    // val fragNotificaciones = NotificacionesFrag()
-                    // cambiarFragmento(fragNotificaciones)
+                    val fragCalendario = CalendarioFrag()
+                    cambiarFragmento(fragCalendario)
                 }
                 R.id.navMusica -> {
                     println("Musica")
