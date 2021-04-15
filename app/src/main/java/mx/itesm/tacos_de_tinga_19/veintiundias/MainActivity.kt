@@ -19,11 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         configurarMenu()
+        configurarFragmentoInicio()
     }
 
     private fun configurarFragmentoInicio(){
-        // val fragHome = HomeFrag()
-        // cambiarFragmento(fragHome)
+        val fragPerfil = PerfilFrag()
+        cambiarFragmento(fragPerfil)
     }
 
     private fun configurarMenu() {
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId){
                 R.id.navPerfil -> {
                     println("Perfil")
-                    //val fragHome = HomeFrag()
-                    //cambiarFragmento(fragHome)
+                    val fragPerfil = PerfilFrag()
+                    cambiarFragmento(fragPerfil)
                 }
                 R.id.navHabitos -> {
                     println("Habitos")
