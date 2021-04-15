@@ -15,26 +15,6 @@ class CalendarioFrag : Fragment() {
         super.onCreate(savedInstanceState)
         //configurarRV();
     }
-/*
-    private fun configurarRV() {
-        val layout = LinearLayoutManager(parentFragment?.context)
-        //R.rvVideos.layoutManager = layout
-        val arrVideos = crearArrVideos()
-        val adaptador = Adaptador(arrVideos)
-    }
-
-    private fun crearArrVideos(): Array<Video> {
-        return arrayOf(
-            Video("Informacion de un video", "https://www.youtube.com/watch?v=iaXReFOr9YY&ab_channel=%EB%8D%95%ED%9B%84%EB%AE%A4%EC%A7%81MusicNerds") ,
-            Video("Informacion de un video 2 ", "https://www.youtube.com/watch?v=iaXReFOr9YY&ab_channel=%EB%8D%95%ED%9B%84%EB%AE%A4%EC%A7%81MusicNerds"),
-            Video("Informacion de un video 3", "https://www.youtube.com/watch?v=iaXReFOr9YY&ab_channel=%EB%8D%95%ED%9B%84%EB%AE%A4%EC%A7%81MusicNerds"),
-            Video("Informacion de un video 4", "https://www.youtube.com/watch?v=iaXReFOr9YY&ab_channel=%EB%8D%95%ED%9B%84%EB%AE%A4%EC%A7%81MusicNerds")
-
-
-
-        )
-    }
-*/
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
