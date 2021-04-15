@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navHabitos -> {
                     println("Habitos")
-                    // val fragTablero = TableroFrag()
-                    // cambiarFragmento(fragTablero)
+                    val fragHabitos = HabitosFrag()
+                    cambiarFragmento(fragHabitos)
                 }
                 R.id.navCalendario -> {
                     println("Calendario")

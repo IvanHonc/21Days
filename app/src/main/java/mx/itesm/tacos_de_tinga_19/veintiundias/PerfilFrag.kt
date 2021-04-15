@@ -23,6 +23,7 @@ class PerfilFrag : Fragment() {
         setBarChart()
         setPieChart()
     }
+
     fun setBarChart(){
         val xvalue = ArrayList<String>()
         xvalue.add("text1")
@@ -49,6 +50,7 @@ class PerfilFrag : Fragment() {
         barChart.animateXY(2000, 2000)
 
     }
+
     fun setPieChart() {
         val xvalue = ArrayList<String>()
         xvalue.add("text")
