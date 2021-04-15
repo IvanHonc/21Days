@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562599143925",
+    "project_id": "veintiundias-1f1ba",
+    "storage_bucket": "veintiundias-1f1ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562599143925:android:3a0b13af2ac3e69d2718bc",
+        "android_client_info": {
+          "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562599143925-90fpjg3qn3341rsb0ka08iltme36kga3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUvAEfvGBTk8dNe3ZcYoqvhHFXFUr-Byw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562599143925-90fpjg3qn3341rsb0ka08iltme36kga3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
