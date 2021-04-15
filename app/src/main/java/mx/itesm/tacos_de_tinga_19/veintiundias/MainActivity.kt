@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navMusica -> {
                     println("Musica")
-                    // val fragTablero = AcercaDeFrag()
-                    // cambiarFragmento(fragTablero)
+                    val fragMusica = MusicaFrag()
+                    cambiarFragmento(fragMusica)
                 }
             }
 

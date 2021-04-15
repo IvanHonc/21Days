@@ -13,9 +13,9 @@ class CalendarioFrag : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        configurarRV();
+        //configurarRV();
     }
-
+/*
     private fun configurarRV() {
         val layout = LinearLayoutManager(parentFragment?.context)
         //R.rvVideos.layoutManager = layout
@@ -34,12 +34,11 @@ class CalendarioFrag : Fragment() {
 
         )
     }
-
+*/
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_calendario, container, false)
     }
-    
 
 }
