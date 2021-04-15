@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                     cambiarFragmento(fragMusica)
                 }
             }
-
             true
         }
     }
@@ -62,5 +61,4 @@ class MainActivity : AppCompatActivity() {
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
             .commit()
     }
-
 }

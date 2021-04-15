@@ -20,5 +20,4 @@ class CalendarioFrag : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_calendario, container, false)
     }
-
 }
