@@ -80,7 +80,7 @@
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/button"
+                            android:id="@+id/btnEstadisticas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
@@ -88,6 +88,7 @@
                             android:layout_weight="1"
                             android:background="#2196F3"
                             android:backgroundTint="@color/prof_back"
+                            android:onClick="cambiarPerfilFrag"
                             android:text="Estadísticas"
                             app:iconTint="#FFFFFF"
                             app:rippleColor="@color/prof_back" />
