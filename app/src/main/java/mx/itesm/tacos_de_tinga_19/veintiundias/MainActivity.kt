@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configurarFragmentoInicio(){
-        val fragPerfil = PerfilFrag()
-        cambiarFragmento(fragPerfil)
+        val frag_ini_perf = InicPerfilFrag()
+        cambiarFragmento(frag_ini_perf)
     }
 
     private fun configurarMenu() {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId){
                 R.id.navPerfil -> {
                     println("Perfil")
-                    val fragPerfil = PerfilFrag()
-                    cambiarFragmento(fragPerfil)
+                    val frag_ini_perf = InicPerfilFrag()
+                    cambiarFragmento(frag_ini_perf)
                 }
                 R.id.navHabitos -> {
                     println("Habitos")
