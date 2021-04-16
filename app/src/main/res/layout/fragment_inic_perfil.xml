@@ -43,15 +43,16 @@
                         android:src="@drawable/usuario_de_perfil"
                         app:civ_border_color="@android:color/white"
                         app:civ_border_width="1dp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
-                        android:text="jesus alcala"
+                        android:layout_marginTop="10dp"
+                        android:text="Jesús Alcalá"
                         android:textColor="#ffff"
-                        android:textStyle="bold"
-                        android:textSize="21sp"/>
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
