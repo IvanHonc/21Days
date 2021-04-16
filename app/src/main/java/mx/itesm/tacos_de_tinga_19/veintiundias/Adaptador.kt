@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.renglon_habito.view.*
 import kotlinx.android.synthetic.main.renglonvideo.view.*
 
 //autor: viviana osorio nieto
