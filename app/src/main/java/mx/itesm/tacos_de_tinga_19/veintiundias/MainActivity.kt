@@ -6,19 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.database.FirebaseDatabase
 import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.ActivityMainBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // Autor: Bruno Hae sal Vázquez Hwang
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        database = FirebaseDatabase.getInstance()
         configurarMenu()
         configurarFragmentoInicio()
     }
