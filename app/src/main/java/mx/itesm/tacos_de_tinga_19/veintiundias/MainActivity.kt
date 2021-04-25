@@ -1,11 +1,13 @@
 package mx.itesm.tacos_de_tinga_19.veintiundias
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.firebase.ui.auth.AuthUI
 import com.google.firebase.database.FirebaseDatabase
 import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.ActivityMainBinding
 import java.time.LocalDateTime
@@ -26,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         configurarMenu()
         configurarFragmentoInicio()
+    }
+
+    fun signOutOnClick(v: View) {
+        signOut()
     }
 
     private fun configurarFragmentoInicio(){
@@ -75,4 +81,16 @@ class MainActivity : AppCompatActivity() {
         cambiarFragmento(fragPerfil)
     }
 
+    fun signOut() {
+        AuthUI.getInstance().signOut(this)
+        val intMainActivity = Intent(baseContext, UserSignIn::class.java)
+        startActivity(intMainActivity)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        val intUserSignInActivity = Intent(baseContext, MainActivity::class.java)
+        startActivity(intUserSignInActivity)
+    }
 }
