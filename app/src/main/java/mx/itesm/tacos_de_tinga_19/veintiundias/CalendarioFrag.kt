@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.auth.FirebaseAuthCredentialsProvider
 import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.FragmentCalendarioBinding
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -23,7 +24,6 @@ import java.util.*
 // Autor: Bruno Hae sal Vázquez Hwang
 
 class CalendarioFrag : Fragment() {
-
 
     private var _binding: FragmentCalendarioBinding? = null
     private lateinit var compactCalendar: CompactCalendarView
@@ -40,8 +40,23 @@ class CalendarioFrag : Fragment() {
         _binding = FragmentCalendarioBinding.inflate(inflater, container, false)
         val view = _binding!!.root
 
-        _binding?.ibtnEscribir?.setOnClickListener{
+        _binding!!.ibtnEscribir.setOnClickListener{
             // Escribe a BD lo que sientes
+        }
+        _binding!!.ibtnDepresion.setOnClickListener{
+            // Escirbe a la BD
+        }
+        _binding!!.ibtnTristesa.setOnClickListener {
+            // Escirbe en la BD
+        }
+        _binding!!.ibtnIndiferente.setOnClickListener {
+            // Escirbe en la BD
+        }
+        _binding!!.ibtnContento.setOnClickListener {
+            // Escirbe en la BD
+        }
+        _binding!!.ibtnFeliz.setOnClickListener {
+            // Escirbe en la BD
         }
         iniciarCalendario()
         return view
@@ -58,7 +73,11 @@ class CalendarioFrag : Fragment() {
         compactCalendar.setUseThreeLetterAbbreviation(true)
         compactCalendar.setFirstDayOfWeek(Calendar.MONDAY)
         _binding?.tVMA?.text = dateFormat.format(Calendar.getInstance().time)
+
+        // tiempo en fecha epoch
         var creation_time = 1619370004000L
+
+        // De epoch a fecha normal para la BD
         var date = Date(creation_time)
         val cal = Calendar.getInstance()
         cal.time = date
@@ -66,18 +85,29 @@ class CalendarioFrag : Fragment() {
         var mes = cal.get(Calendar.MONTH)
         var dia = cal.get(Calendar.DAY_OF_MONTH)
         println("$ano/${mes+1}/$dia")
+
+        // Evento con epoch
         val ev1 = Event(Color.RED, creation_time)
         compactCalendar.addEvent(ev1)
+
+        // Listener
         compactCalendar.setListener(object: CompactCalendarView.CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date?) {
+                // Darle formato a la fehca seleccionada
                 val sdf = SimpleDateFormat("dd-MM-yyyy")
+
+                // Convertir a timestamp de fecha normal
                 val l = sdf.parse(sdf.format(dateClicked))
+
+                // Covertirla en epoch y agregar evento
                 val epoch = dateClicked!!.time
                 val ev = Event(Color.RED, epoch)
                 compactCalendar.addEvent(ev)
+
+
                 println("Esta es el stamp $l")
                 println("El epoch $epoch")
-                println("${sdf.format(dateClicked)}")
+                println("Fecha normal ${sdf.format(dateClicked)}")
             }
 
             override fun onMonthScroll(firstDayOfNewMonth: Date?) {
