@@ -46,7 +46,7 @@ class CalendarioFrag : Fragment() {
         _binding!!.ibtnDepresion.setOnClickListener{
             // Escirbe a la BD
         }
-        _binding!!.ibtnTristesa.setOnClickListener {
+        _binding!!.ibtnTriste.setOnClickListener {
             // Escirbe en la BD
         }
         _binding!!.ibtnIndiferente.setOnClickListener {
