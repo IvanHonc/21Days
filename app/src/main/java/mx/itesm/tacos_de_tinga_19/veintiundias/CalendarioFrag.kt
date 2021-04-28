@@ -1,6 +1,7 @@
 package mx.itesm.tacos_de_tinga_19.veintiundias
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,7 +32,8 @@ class CalendarioFrag : Fragment() {
     private lateinit var Auth: FirebaseAuth
     private lateinit var firebase: FirebaseDatabase
     private val formato = SimpleDateFormat("dd-M-yyyy")
-    private var counter = mutableListOf(1,1,1,1,1)
+    private lateinit var arrFechas: MutableList<Fecha>
+    private var flagEventos = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,7 @@ class CalendarioFrag : Fragment() {
         val view = _binding!!.root
         Auth = FirebaseAuth.getInstance()
         firebase = FirebaseDatabase.getInstance()
+        arrFechas = mutableListOf()
 
         _binding!!.ibtnEscribir.setOnClickListener{
             // Escribe a BD lo que sientes
@@ -60,83 +63,44 @@ class CalendarioFrag : Fragment() {
         }
         _binding!!.ibtnTriste.setOnClickListener{
             // Escirbe a la BD
-            if(counter[0] == 0) {
-                compactCalendar.removeAllEvents()
-            }
             grabarEmocion(1)
             val text = "Hoy te sientes triste"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
-            counter[0] += 1
-            counter[1] = 0
-            counter[2] = 0
-            counter[3] = 0
-            counter[4] = 0
+
         }
         _binding!!.ibtnAsco.setOnClickListener {
             // Escirbe en la BD
-            if(counter[1] == 0) {
-                compactCalendar.removeAllEvents()
-            }
             grabarEmocion(2)
             val text = "Hoy te sientes con asco"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
-            counter[1] += 1
-            counter[0] = 0
-            counter[2] = 0
-            counter[3] = 0
-            counter[4] = 0
         }
         _binding!!.ibtnAlegre.setOnClickListener {
             // Escirbe en la BD
-            if(counter[2]==0) {
-                compactCalendar.removeAllEvents()
-            }
             grabarEmocion(3)
             val text = "Hoy te sientes alegre"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
-            counter[2] +=1
-            counter[1] = 0
-            counter[0] = 0
-            counter[3] = 0
-            counter[4] = 0
         }
         _binding!!.ibtnSorpresa.setOnClickListener {
             // Escirbe en la BD
-            if(counter[3]==0) {
-                compactCalendar.removeAllEvents()
-            }
             grabarEmocion(4)
             val text = "Hoy te sientes con sorpresa"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
-            counter[3] +=1
-            counter[1] = 0
-            counter[2] = 0
-            counter[0] = 0
-            counter[4] = 0
         }
         _binding!!.ibtnEnfado.setOnClickListener {
             // Escirbe en la BD
-            if(counter[4]==0) {
-                compactCalendar.removeAllEvents()
-            }
             grabarEmocion(5)
             val text = "Hoy te sientes con enfado"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
-            counter[3] +=1
-            counter[1] = 0
-            counter[2] = 0
-            counter[3] = 0
-            counter[0] = 0
         }
         iniciarCalendario()
         return view
@@ -172,24 +136,19 @@ class CalendarioFrag : Fragment() {
         referencia.setValue(nota)
     }
 
-    fun agregarEventos(){
+    fun leerEventos(callback: FirebaseCallback){
         val referencia = firebase.getReference("/Usuarios/${Auth.currentUser.uid}/Fecha/")
         referencia.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                println("El valor de flag $flagEventos")
                 for (registro in snapshot.children) {
                     val resultado = registro.getValue(Fecha::class.java)
-                    var emocion = resultado?.emocion.toString()
-                    var epoch = resultado?.currentDateEpoch.toString().toLong()
-                    val ev: Event
-                    when (emocion) {
-                        "Tristeza" -> ev = Event(Color.parseColor("#2196F3"), epoch)
-                        "Asco" -> ev = Event(Color.parseColor("#ff99cc00"), epoch)
-                        "Alegría" -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
-                        "Sorpresa" -> ev = Event(Color.parseColor("#ffff8800"), epoch)
-                        "Enfado" -> ev = Event(Color.parseColor("#ffcc0000"), epoch)
-                        else -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
+                    if (resultado != null) {
+                        arrFechas.add(resultado)
                     }
-                    compactCalendar.addEvent(ev)
+                }
+                if (flagEventos) {
+                    callback.onCallBack(arrFechas)
                 }
             }
 
@@ -199,6 +158,22 @@ class CalendarioFrag : Fragment() {
         })
     }
 
+    fun añadirEventos() {
+        for(registros in arrFechas){
+            var emocion = registros.emocion
+            var epoch = registros.currentDateEpoch
+            val ev: Event
+            when (emocion) {
+                "Tristeza" -> ev = Event(Color.parseColor("#2196F3"), epoch)
+                "Asco" -> ev = Event(Color.parseColor("#ff99cc00"), epoch)
+                "Alegría" -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
+                "Sorpresa" -> ev = Event(Color.parseColor("#ffff8800"), epoch)
+                "Enfado" -> ev = Event(Color.parseColor("#ffcc0000"), epoch)
+                else -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
+            }
+            compactCalendar.addEvent(ev)
+        }
+    }
     fun iniciarCalendario(){
         compactCalendar = _binding!!.compactcalendarView
         compactCalendar.setUseThreeLetterAbbreviation(true)
@@ -206,7 +181,13 @@ class CalendarioFrag : Fragment() {
         _binding?.tVMA?.text = dateFormat.format(Calendar.getInstance().time)
 
         // Agregar Eventos
-        agregarEventos()
+        leerEventos(object : FirebaseCallback {
+            override fun onCallBack(lista: MutableList<Fecha>) {
+                arrFechas = lista
+                añadirEventos()
+                flagEventos = false
+            }
+        })
 
         // Listener
         compactCalendar.setListener(object : CompactCalendarView.CompactCalendarViewListener {
@@ -249,7 +230,8 @@ class CalendarioFrag : Fragment() {
         })
     }
 
-
-
+    interface FirebaseCallback{
+        fun onCallBack(lista: MutableList<Fecha>)
+    }
 
 }
