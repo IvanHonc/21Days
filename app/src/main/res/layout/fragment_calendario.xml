@@ -64,23 +64,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <ImageButton
-            android:id="@+id/ibtnDepresion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary_dark"
-            android:src="@android:drawable/ic_media_previous" />
-
-        <ImageButton
             android:id="@+id/ibtnTriste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/teal_200"
+            android:backgroundTint="@color/prof_back"
+            android:src="@android:drawable/ic_media_previous" />
+
+        <ImageButton
+            android:id="@+id/ibtnAsco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_green_light"
             android:src="@android:drawable/ic_media_play" />
 
         <ImageButton
-            android:id="@+id/ibtnIndiferente"
+            android:id="@+id/ibtnAlegre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,7 +88,7 @@
             android:src="@android:drawable/ic_media_next" />
 
         <ImageButton
-            android:id="@+id/ibtnContento"
+            android:id="@+id/ibtnSorpresa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -96,7 +96,7 @@
             android:src="@android:drawable/ic_media_pause" />
 
         <ImageButton
-            android:id="@+id/ibtnFeliz"
+            android:id="@+id/ibtnEnfado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
