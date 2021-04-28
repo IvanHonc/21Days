@@ -1,7 +1,6 @@
 package mx.itesm.tacos_de_tinga_19.veintiundias
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,7 +32,9 @@ class CalendarioFrag : Fragment() {
     private lateinit var firebase: FirebaseDatabase
     private val formato = SimpleDateFormat("dd-M-yyyy")
     private lateinit var arrFechas: MutableList<Fecha>
+    private lateinit var strNota: String
     private var flagEventos = true
+    private var flagNota = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,7 @@ class CalendarioFrag : Fragment() {
 
         _binding!!.ibtnEscribir.setOnClickListener{
             // Escribe a BD lo que sientes
+            flagNota = false
             grabarNota()
             _binding?.tieSentimientos?.setText("")
             val inputManager: InputMethodManager = view
@@ -136,7 +138,7 @@ class CalendarioFrag : Fragment() {
         referencia.setValue(nota)
     }
 
-    fun leerEventos(callback: FirebaseCallback){
+    fun leerEventos(callback: FirebaseCallbackList){
         val referencia = firebase.getReference("/Usuarios/${Auth.currentUser.uid}/Fecha/")
         referencia.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -148,7 +150,7 @@ class CalendarioFrag : Fragment() {
                     }
                 }
                 if (flagEventos) {
-                    callback.onCallBack(arrFechas)
+                    callback.onCallBackListFecha(arrFechas)
                 }
             }
 
@@ -181,8 +183,8 @@ class CalendarioFrag : Fragment() {
         _binding?.tVMA?.text = dateFormat.format(Calendar.getInstance().time)
 
         // Agregar Eventos
-        leerEventos(object : FirebaseCallback {
-            override fun onCallBack(lista: MutableList<Fecha>) {
+        leerEventos(object : FirebaseCallbackList {
+            override fun onCallBackListFecha(lista: MutableList<Fecha>) {
                 arrFechas = lista
                 añadirEventos()
                 flagEventos = false
@@ -192,35 +194,16 @@ class CalendarioFrag : Fragment() {
         // Listener
         compactCalendar.setListener(object : CompactCalendarView.CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date?) {
-                var arrNota: MutableList<String>
-                arrNota = mutableListOf()
-                val date = formato.format(dateClicked)
-                val referencia = firebase.getReference("/Usuarios/${Auth.currentUser.uid}/Nota/$date")
-                referencia.addValueEventListener(object: ValueEventListener{
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        arrNota.clear()
-                        for(registro in snapshot.children){
-                            arrNota.add(registro.value.toString())
-                        }
-                        if(arrNota.size == 0){
-                            val text = "No escirbiste/escirto nada en dicha fecha"
-                            val duration = Toast.LENGTH_SHORT
-                            val toast = Toast.makeText(view?.context, text, duration)
-                            toast.show()
-                        } else{
-                            val text = arrNota.get(0)
-                            val duration = Toast.LENGTH_SHORT
-                            val toast = Toast.makeText(view?.context, text, duration)
-                            toast.show()
+                flagNota = true
+                leerNota(object: FirebaseCallbackString{
+                    override fun onCallBackStringNota(str: String) {
+                        strNota = str
+                        flagNota
+                        if(flagNota) {
+                            desplegarNota()
                         }
                     }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        println("Error al descargar los datos")
-                    }
-
-                })
-
+                }, dateClicked, flagNota)
             }
 
             override fun onMonthScroll(firstDayOfNewMonth: Date?) {
@@ -230,8 +213,49 @@ class CalendarioFrag : Fragment() {
         })
     }
 
-    interface FirebaseCallback{
-        fun onCallBack(lista: MutableList<Fecha>)
+    fun desplegarNota(){
+        val text = "Escirbiste: " + strNota
+        val duration = Toast.LENGTH_SHORT
+        val toast = Toast.makeText(view?.context, text, duration)
+        toast.show()
     }
+
+    fun leerNota(callBack: FirebaseCallbackString, dateClicked: Date?, flag: Boolean){
+        var arrNota: MutableList<String>
+        arrNota = mutableListOf()
+        val date = formato.format(dateClicked)
+        val referencia = firebase.getReference("/Usuarios/${Auth.currentUser.uid}/Nota/$date")
+        referencia.addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                arrNota.clear()
+                for(registro in snapshot.children){
+                    arrNota.add(registro.value.toString())
+                }
+                if (arrNota.size == 0) {
+                    val text = "No escirbiste/escirto nada en dicha fecha"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(view?.context, text, duration)
+                    toast.show()
+                } else {
+                    callBack.onCallBackStringNota(arrNota.get(0))
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                println("Error al descargar los datos")
+            }
+
+        })
+    }
+
+    interface FirebaseCallbackList{
+        fun onCallBackListFecha(lista: MutableList<Fecha>)
+    }
+
+    interface FirebaseCallbackString{
+        fun onCallBackStringNota(str: String)
+    }
+
 
 }
