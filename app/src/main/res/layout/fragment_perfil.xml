@@ -33,17 +33,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Esta semana"
+                    android:text="Actualmente tienes: "
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tvDaysUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="10 hrs 13 mins"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/cardview_dark_background" />
             </LinearLayout>
