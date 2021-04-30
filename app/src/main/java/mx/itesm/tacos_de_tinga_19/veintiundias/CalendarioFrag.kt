@@ -214,7 +214,7 @@ class CalendarioFrag : Fragment() {
     }
 
     fun desplegarNota(){
-        val text = "Escirbiste: " + strNota
+        val text = "Escribiste: " + strNota
         val duration = Toast.LENGTH_SHORT
         val toast = Toast.makeText(view?.context, text, duration)
         toast.show()
