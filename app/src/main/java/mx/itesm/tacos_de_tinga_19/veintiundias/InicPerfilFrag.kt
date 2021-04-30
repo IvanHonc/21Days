@@ -32,5 +32,4 @@ class InicPerfilFrag : Fragment() {
         val binding = FragmentInicPerfilBinding.bind(view)
         _binding = binding
     }
-
 }
