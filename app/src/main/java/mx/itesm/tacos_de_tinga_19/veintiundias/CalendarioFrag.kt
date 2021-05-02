@@ -66,7 +66,7 @@ class CalendarioFrag : Fragment() {
         _binding!!.ibtnTriste.setOnClickListener{
             // Escirbe a la BD
             grabarEmocion(1)
-            val text = "Hoy te sientes triste"
+            val text = "Hoy te sientes con tristeza"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
@@ -75,7 +75,7 @@ class CalendarioFrag : Fragment() {
         _binding!!.ibtnAsco.setOnClickListener {
             // Escirbe en la BD
             grabarEmocion(2)
-            val text = "Hoy te sientes con asco"
+            val text = "Hoy te sientes con cansancio"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
@@ -91,7 +91,7 @@ class CalendarioFrag : Fragment() {
         _binding!!.ibtnSorpresa.setOnClickListener {
             // Escirbe en la BD
             grabarEmocion(4)
-            val text = "Hoy te sientes con sorpresa"
+            val text = "Hoy te sientes con inspiración"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(view.context, text, duration)
             toast.show()
@@ -121,9 +121,9 @@ class CalendarioFrag : Fragment() {
         val fecha: Fecha
         when (emocion){
             1 -> fecha = Fecha("Tristeza", currentDateEpoch)
-            2 -> fecha = Fecha("Asco", currentDateEpoch)
+            2 -> fecha = Fecha("Cansancio", currentDateEpoch)
             3 -> fecha = Fecha("Alegría", currentDateEpoch)
-            4 -> fecha = Fecha("Sorpresa", currentDateEpoch)
+            4 -> fecha = Fecha("Inspiración", currentDateEpoch)
             5 -> fecha = Fecha("Enfado", currentDateEpoch)
             else -> fecha = Fecha("Alegría", currentDateEpoch)
         }
@@ -167,9 +167,9 @@ class CalendarioFrag : Fragment() {
             val ev: Event
             when (emocion) {
                 "Tristeza" -> ev = Event(Color.parseColor("#2196F3"), epoch)
-                "Asco" -> ev = Event(Color.parseColor("#ff99cc00"), epoch)
+                "Cansancio" -> ev = Event(Color.parseColor("#ff99cc00"), epoch)
                 "Alegría" -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
-                "Sorpresa" -> ev = Event(Color.parseColor("#ffff8800"), epoch)
+                "Inspiración" -> ev = Event(Color.parseColor("#ffff8800"), epoch)
                 "Enfado" -> ev = Event(Color.parseColor("#ffcc0000"), epoch)
                 else -> ev = Event(Color.parseColor("#ffffbb33"), epoch)
             }

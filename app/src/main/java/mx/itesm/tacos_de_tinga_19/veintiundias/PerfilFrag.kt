@@ -50,17 +50,17 @@ class PerfilFrag : Fragment() {
                     countDias ++
                     when (emocion) {
                         "Tristeza" -> count1++
-                        "Asco" -> count2++
+                        "Cansancio" -> count2++
                         "Alegría" -> count3++
-                        "Sorpresa" -> count4++
+                        "Inspiración" -> count4++
                         "Enfado" -> count5++
                         else -> count1++
                     }
                     val xvalue = ArrayList<String>()
                     xvalue.add("Tristeza")
-                    xvalue.add("Asco")
+                    xvalue.add("Cansancio")
                     xvalue.add("Alegría")
-                    xvalue.add("Sorpresa")
+                    xvalue.add("Inspiración")
                     xvalue.add("Enfado")
                     val yax = ArrayList<Float>()
                     yax.add(count1+0.0f)
@@ -86,7 +86,11 @@ class PerfilFrag : Fragment() {
                         println("error: barchart null")
                     }
                 }
-                tvDaysUser.text = countDias.toString()+" días"
+                try {
+                    tvDaysUser.text = countDias.toString() + " días"
+                }catch (e: NullPointerException){
+                    println("error: barchart null")
+                }
             }
             override fun onCancelled(error: DatabaseError) {
                 println("Error al descargar los datos")
@@ -108,17 +112,17 @@ class PerfilFrag : Fragment() {
                     println(emocion)
                     when (emocion) {
                         "Tristeza" -> count1++
-                        "Asco" -> count2++
+                        "Cansancio" -> count2++
                         "Alegría" -> count3++
-                        "Sorpresa" -> count4++
+                        "Inspiración" -> count4++
                         "Enfado" -> count5++
                         else -> count1++
                     }
                     val xvalue = ArrayList<String>()
                     xvalue.add("Tristeza")
-                    xvalue.add("Asco")
+                    xvalue.add("Cansancio")
                     xvalue.add("Alegría")
-                    xvalue.add("Sorpresa")
+                    xvalue.add("Inspiración")
                     xvalue.add("Enfado")
                     val yax = ArrayList<Float>()
                     yax.add(count1 + 0.0f)
