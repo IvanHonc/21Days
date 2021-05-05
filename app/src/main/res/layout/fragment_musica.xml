@@ -1,38 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout2"
+    android:id="@+id/FragmentMusicaBinding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MusicaFrag" >
+    android:background="#FEFFD3"
+    android:backgroundTint="#FEFFD3"
+    tools:context=".MusicaFrag">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/rvVideos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </SearchView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVideos"
-        android:layout_width="345dp"
-        android:layout_height="573dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+    <ImageView
+        android:id="@+id/imgBackgrnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fondodurmiendo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4DFCFFFC"
+        android:text="00:00"
+        android:textColor="@android:color/black"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:text="reset"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnIniciar"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_countdown" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="245dp"
+        android:layout_marginTop="184dp"
+        android:src="@drawable/durmiendo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_countdown"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/btnmar"
+        android:layout_width="69dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="36dp"
+        android:background="#4DFCFFFC"
+        android:backgroundTint="#FFFFFF"
+        android:scaleType="centerInside"
+        android:src="@drawable/wave"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnfuego" />
+
+    <ImageButton
+        android:id="@+id/btnfuego"
+        android:layout_width="71dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="36dp"
+        android:adjustViewBounds="false"
+        android:background="#4DFCFFFC"
+        android:scaleType="centerInside"
+        android:src="@drawable/fire"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnbuho"
+        android:layout_width="67dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="#4DFCFFFC"
+        android:scaleType="centerInside"
+        android:src="@drawable/owl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnLluvia"
+        android:layout_width="68dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="36dp"
+        android:background="#4DFCFFFC"
+        android:scaleType="centerInside"
+        android:src="@drawable/rain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnbuho"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/btnmar" />
+
+    <ImageButton
+        android:id="@+id/btnIniciar"
+        android:layout_width="153dp"
+        android:layout_height="88dp"
+        android:background="#01FFFFFF"
+        android:scaleType="fitXY"
+        android:src="@drawable/smallbtnstart1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_countdown" />
+
+    <ImageButton
+        android:id="@+id/btn5min"
+        android:layout_width="119dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn5min"
+        app:layout_constraintBottom_toTopOf="@+id/gifImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn10min"
+        android:layout_width="120dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn10min"
+        app:layout_constraintBottom_toTopOf="@+id/gifImageView"
+        app:layout_constraintEnd_toStartOf="@+id/btn20min"
+        app:layout_constraintStart_toEndOf="@+id/btn5min" />
+
+    <ImageButton
+        android:id="@+id/btn20min"
+        android:layout_width="120dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn20min"
+        app:layout_constraintBottom_toTopOf="@+id/gifImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
