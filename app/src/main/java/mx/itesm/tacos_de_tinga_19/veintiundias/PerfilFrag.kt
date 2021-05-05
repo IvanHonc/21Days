@@ -32,8 +32,6 @@ class PerfilFrag : Fragment() {
         setPieChart()
     }
 
-
-
     fun setBarChart(){
         var count1 = 0
         var count2 = 0
@@ -57,11 +55,11 @@ class PerfilFrag : Fragment() {
                         else -> count1++
                     }
                     val xvalue = ArrayList<String>()
-                    xvalue.add("Tristeza")
-                    xvalue.add("Cansancio")
-                    xvalue.add("Alegría")
-                    xvalue.add("Inspiración")
-                    xvalue.add("Enfado")
+                    xvalue.add("Triste")
+                    xvalue.add("Cansado")
+                    xvalue.add("Alegre")
+                    xvalue.add("Inspir.")
+                    xvalue.add("Enfadado")
                     val yax = ArrayList<Float>()
                     yax.add(count1+0.0f)
                     yax.add(count2+0.0f)
@@ -72,8 +70,8 @@ class PerfilFrag : Fragment() {
                     for ((i, item) in yax.withIndex()){
                         barentries.add(BarEntry(yax[i], i))
                     }
-                    val bardataset = BarDataSet(barentries, "texts1")
-                    bardataset.color = resources.getColor(R.color.black)
+                    val bardataset = BarDataSet(barentries, "")
+                    bardataset.color = resources.getColor(R.color.transparent)
                     val datacon = ArrayList<BarDataSet>()
                     datacon.add(bardataset)
                     try {
@@ -81,13 +79,18 @@ class PerfilFrag : Fragment() {
                         barChart.data= data
                         barChart.setBackgroundColor(resources.getColor(R.color.white))
                         bardataset.setColors(ColorTemplate.COLORFUL_COLORS)
+                        barChart.setDescription("")
                         barChart.animateXY(2000, 2000)
                     }catch (e: NullPointerException){
                         println("error: barchart null")
                     }
                 }
                 try {
-                    tvDaysUser.text = countDias.toString() + " días"
+                    if (countDias==1){
+                        tvDaysUser.text = countDias.toString() + " día"
+                    }else{
+                        tvDaysUser.text = countDias.toString() + " días"
+                    }
                 }catch (e: NullPointerException){
                     println("error: barchart null")
                 }
@@ -140,7 +143,7 @@ class PerfilFrag : Fragment() {
                     colors.add(Color.DKGRAY)
                     colors.add(Color.YELLOW)
                     colors.add(Color.MAGENTA)
-                    val piedataset = PieDataSet(piechartentry, "days")
+                    val piedataset = PieDataSet(piechartentry, "")
                     piedataset.colors = colors
                     piedataset.setColors(ColorTemplate.COLORFUL_COLORS)
                     piedataset.sliceSpace = 3f
@@ -150,7 +153,7 @@ class PerfilFrag : Fragment() {
                         piechart.data = data
                         piechart.holeRadius = 5f
                         piechart.setBackgroundColor(resources.getColor(R.color.white))
-                        piechart.setDescription("days")
+                        piechart.setDescription("")
                         piechart.animateY(2000)
                     }catch(e: NullPointerException){
                         println("error: barchart null")
