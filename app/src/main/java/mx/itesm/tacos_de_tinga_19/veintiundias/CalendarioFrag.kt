@@ -256,6 +256,4 @@ class CalendarioFrag : Fragment() {
     interface FirebaseCallbackString{
         fun onCallBackStringNota(str: String)
     }
-
-
 }

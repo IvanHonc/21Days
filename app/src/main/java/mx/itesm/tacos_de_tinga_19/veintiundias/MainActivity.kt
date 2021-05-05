@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                     cambiarFragmento(fragMusica)
                 }
             }
-
             true
         }
     }
