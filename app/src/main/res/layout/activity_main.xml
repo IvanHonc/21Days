@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvDaysUser"
         android:layout_width="85dp"
         android:layout_height="56dp"
         android:background="@color/black"
@@ -27,7 +27,7 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/tvDaysUser"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_superior" />
 
@@ -45,5 +45,16 @@
         app:layout_constraintTop_toBottomOf="@+id/menuNavegacion">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/btSignOutMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="signOutOnClick"
+        android:text="SIGN-OUT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

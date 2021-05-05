@@ -9,16 +9,14 @@ import com.google.firebase.firestore.QuerySnapshot
 
 class StorageService {
 
-    lateinit var db : FirebaseFirestore
+    var db = FirebaseFirestore.getInstance()
 
-    init {
-        var db = FirebaseFirestore.getInstance()
-    }
+    /*init {
+       db = FirebaseFirestore.getInstance()
+    }*/
 
-    fun addData(data: Map<String, Object>, collection: String):DocumentReference{
-
-        val documentReference: DocumentReference = Tasks.await(db.collection(collection).add(data))
-        return documentReference;
+    fun addData(data: Map<String, Any>, collection: String){
+        db.collection(collection).add(data)
     }
 
     public fun getData(collection: String) : QuerySnapshot?{

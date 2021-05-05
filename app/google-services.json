@@ -1,33 +1,74 @@
 {
   "project_info": {
-    "project_number": "562599143925",
-    "project_id": "veintiundias-1f1ba",
-    "storage_bucket": "veintiundias-1f1ba.appspot.com"
+    "project_number": "698610368389",
+    "firebase_url": "https://dia-73ba3-default-rtdb.firebaseio.com",
+    "project_id": "dia-73ba3",
+    "storage_bucket": "dia-73ba3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:562599143925:android:3a0b13af2ac3e69d2718bc",
+        "mobilesdk_app_id": "1:698610368389:android:6be39fc9813e6fdb49ceec",
         "android_client_info": {
           "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias"
         }
       },
       "oauth_client": [
         {
-          "client_id": "562599143925-90fpjg3qn3341rsb0ka08iltme36kga3.apps.googleusercontent.com",
+          "client_id": "698610368389-63pjfvftd07cf0kqjo0dpd5jj5mh53l9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "86ff6b6781f53651ebe9ba10d8927b8a42d678ed"
+          }
+        },
+        {
+          "client_id": "698610368389-9uhf8be6hhmor4dpqut3b6tafb1gum4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "de3ad9e491cc4b458c39c30a29131aab92cf9ec8"
+          }
+        },
+        {
+          "client_id": "698610368389-k3ri1qu4c1uohgtaridjdjp3vfqkc4ui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "eacfb7a84713d9a2135aacc4509c9f95b14ffe41"
+          }
+        },
+        {
+          "client_id": "698610368389-olbdc6moqnial21c2afalmbdfgv49b43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "07523ea381bd4f5e397c955d1161420653d0c397"
+          }
+        },
+        {
+          "client_id": "698610368389-tq05lgc45jvbr35nvvannbeh7e9dajkf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "3154f2c0738fa94be661faeca52c7baa1b04620e"
+          }
+        },
+        {
+          "client_id": "698610368389-es0c2tb8mihdp42lu1bi70qu5eh8q55h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDUvAEfvGBTk8dNe3ZcYoqvhHFXFUr-Byw"
+          "current_key": "AIzaSyDxYsH5s8TDUcsQ84XFe8LhChF3Fs8a_mc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "562599143925-90fpjg3qn3341rsb0ka08iltme36kga3.apps.googleusercontent.com",
+              "client_id": "698610368389-es0c2tb8mihdp42lu1bi70qu5eh8q55h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
