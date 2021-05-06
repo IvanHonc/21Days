@@ -232,7 +232,7 @@ class CalendarioFrag : Fragment() {
                     arrNota.add(registro.value.toString())
                 }
                 if (arrNota.size == 0) {
-                    val text = "No escirbiste/escirto nada en dicha fecha"
+                    val text = "No escribiste nada en esta fecha"
                     val duration = Toast.LENGTH_SHORT
                     val toast = Toast.makeText(view?.context, text, duration)
                     toast.show()
