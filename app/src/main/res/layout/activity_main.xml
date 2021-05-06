@@ -6,43 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvDaysUser"
-        android:layout_width="85dp"
-        android:layout_height="56dp"
-        android:background="@color/black"
-        android:text="21D"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menuNavegacion"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:itemBackground="@color/teal_200"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/contenedorFragmentos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvDaysUser"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_superior" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="#FEFFD3"
+            app:srcCompat="@drawable/logo21" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/menuNavegacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FEFFD3"
+            app:itemBackground="#FEFFD3"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/menu_superior" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/contenedorFragmentos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuNavegacion">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 
