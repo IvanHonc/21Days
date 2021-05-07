@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp">
@@ -17,13 +19,38 @@
             android:textAlignment="center"
             android:textSize="16sp" />
 
-        <ProgressBar
-            android:id="@+id/pbDiasHabito"
-            style="@android:style/Widget.Material.ProgressBar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="133dp"
-            android:max="100"
-            android:progress="25" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/pbDiasHabito"
+                style="@android:style/Widget.Material.ProgressBar"
+                android:layout_width="257dp"
+                android:layout_height="133dp"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progress="25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="16dp"
+                android:text="X"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/pbDiasHabito"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.183" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tvHabitoTiempo"
@@ -33,5 +60,8 @@
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
