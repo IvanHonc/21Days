@@ -10,9 +10,9 @@ class habitsController : Fragment() {
     fun addHabit(email: String, habit: Habito)
     {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef: DatabaseReference = database.getReference(email)
+        val myRef: DatabaseReference = database.getReference("/Usuarios/${email}")
 
-        myRef.child("habits").child(email).get().addOnSuccessListener {
+        myRef.child("habits").get().addOnSuccessListener {
             val genericTypeIndicator: GenericTypeIndicator<List<Habito>> =
                 object : GenericTypeIndicator<List<Habito>>() {}
             var habits: List<Habito>
@@ -22,7 +22,7 @@ class habitsController : Fragment() {
                 habits = it.getValue(genericTypeIndicator)!!
             }
             habits = habits + habit
-            myRef.child("habits").child(email).setValue(habits)
+            myRef.child("habits").setValue(habits)
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }
@@ -32,11 +32,11 @@ class habitsController : Fragment() {
     fun setUpGetHabits (email: String, callback: Callback)
     {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef: DatabaseReference = database.getReference(email)
+        val myRef: DatabaseReference = database.getReference("/Usuarios/${email}")
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                var it = snapshot.child("habits").child(email)
+                var it = snapshot.child("habits")
                 val genericTypeIndicator: GenericTypeIndicator<List<Habito>> =
                     object : GenericTypeIndicator<List<Habito>>() {}
                 var habits: List<Habito>
@@ -60,9 +60,9 @@ class habitsController : Fragment() {
     fun deleteHabits(email: String, name: String)
     {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef: DatabaseReference = database.getReference(email)
+        val myRef: DatabaseReference = database.getReference("/Usuarios/${email}")
 
-        myRef.child("habits").child(email).get().addOnSuccessListener {
+        myRef.child("habits").get().addOnSuccessListener {
             val genericTypeIndicator: GenericTypeIndicator<List<Habito>> =
                 object : GenericTypeIndicator<List<Habito>>() {}
             var habits: List<Habito>
@@ -73,7 +73,7 @@ class habitsController : Fragment() {
             }
             habits = habits.filter { it.name != name }
 
-            myRef.child("habits").child(email).setValue(habits)
+            myRef.child("habits").setValue(habits)
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }
