@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun cambiarFragmento(fragmento: Fragment) {
+    public fun cambiarFragmento(fragmento: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.contenedorFragmentos.id, fragmento)
             .addToBackStack(null)
