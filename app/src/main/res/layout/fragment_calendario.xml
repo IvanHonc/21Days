@@ -65,43 +65,48 @@
 
         <ImageButton
             android:id="@+id/ibtnTriste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_weight="1"
-            android:backgroundTint="@color/prof_back"
-            android:src="@android:drawable/ic_media_previous" />
+            android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/triste" />
 
         <ImageButton
             android:id="@+id/ibtnAsco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_green_light"
-            android:src="@android:drawable/ic_media_play" />
+            android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cansado" />
 
         <ImageButton
             android:id="@+id/ibtnAlegre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_orange_light"
-            android:src="@android:drawable/ic_media_next" />
+            android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/alegre" />
 
         <ImageButton
             android:id="@+id/ibtnSorpresa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_orange_dark"
-            android:src="@android:drawable/ic_media_pause" />
+            android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/inspirado" />
 
         <ImageButton
             android:id="@+id/ibtnEnfado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:src="@android:drawable/ic_media_ff" />
+            android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/enfadado" />
     </LinearLayout>
 
     <TextView
