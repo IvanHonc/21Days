@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/azulmapache"
     tools:context=".UserSignIn">
 
     <pl.droidsonroids.gif.GifImageView
@@ -11,41 +12,50 @@
         android:layout_width="393dp"
         android:layout_height="195dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/durmiendo"
+        android:layout_marginBottom="32dp"
+        android:background="@color/azulmapache"
+        android:src="@drawable/fuego"
+        app:layout_constraintBottom_toTopOf="@+id/btSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btSignIn"
-        android:layout_width="188dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="355dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/transparent"
         android:onClick="authenticateOnClick"
-        android:text="SIGN-IN WITH GOOGLE"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifImageView2" />
+        app:srcCompat="@drawable/button_iniciar_sesion_con_google" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="126dp"
+        android:layout_height="110dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="cursive"
-        android:text="21 Días"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo21" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nombreapp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
