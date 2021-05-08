@@ -80,6 +80,15 @@ class MainActivity : AppCompatActivity() {
         cambiarFragmento(fragPerfil)
     }
 
+    fun cambiarAcercaDe(v: View){
+        val fragAcercaDe = AcercaDe()
+        cambiarFragmento(fragAcercaDe)
+    }
+    fun returnPerfil(v: View){
+        val fragPerfil = InicPerfilFrag()
+        cambiarFragmento(fragPerfil)
+    }
+
     fun signOut() {
         AuthUI.getInstance().signOut(this)
         val intMainActivity = Intent(baseContext, UserSignIn::class.java)
