@@ -13,4 +13,9 @@
     <color name="text_color">#00BCD4</color>
     <color name="amarilloClaro">#feffd3</color>
     <color name="azulmapache">#001830</color>
+    <color name="enojo">#d00000</color>
+    <color name="tristeza">#2794eb</color>
+    <color name="cansancio">#96c900</color>
+    <color name="felicidad">#ffbf39</color>
+    <color name="inspiracion">#fc8800</color>
 </resources>
