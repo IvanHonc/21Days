@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.renglon_habito.view.*
 import org.w3c.dom.Text
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class AdaptadorHabito (private val habits : List<Habito>, val _Auth: FirebaseAuth, val _controller: habitsController) : RecyclerView.Adapter<AdaptadorHabito.ViewLine>() {
     var listener: ClickListener? = null
@@ -20,7 +22,8 @@ class AdaptadorHabito (private val habits : List<Habito>, val _Auth: FirebaseAut
         RecyclerView.ViewHolder(viewLineCard) {
         fun setCard(habito: Habito) {
             viewLineCard.tvHabitoTitle.text = habito.name
-            viewLineCard.tvHabitoTiempo.text = habito.days.toString()
+            viewLineCard.tvHabitoTiempo.text = (21 - TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)).toString()
+            viewLineCard.pbDiasHabito.setProgress((21 - TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)).toInt())
             viewLineCard.delete.setOnClickListener {
                 controller.deleteHabits(Auth.currentUser.uid, habito.name);
             }

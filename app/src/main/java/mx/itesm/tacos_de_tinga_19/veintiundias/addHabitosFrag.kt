@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_create_habitos.*
 import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.FragmentCreateHabitosBinding
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.util.*
 
 class addHabitosFrag: Fragment() {
 
@@ -25,7 +29,7 @@ class addHabitosFrag: Fragment() {
         _binding = binding
         addHabit.setOnClickListener {
             var text:String = nameOfHabit.text.toString()
-            _controller.addHabit(Auth.currentUser.uid , Habito(text, 21))
+            _controller.addHabit(Auth.currentUser.uid , Habito(text, 21, Calendar.getInstance().time ))
             var newfrag = HabitosFrag()
             (activity as MainActivity).cambiarFragmento(newfrag);
         }
