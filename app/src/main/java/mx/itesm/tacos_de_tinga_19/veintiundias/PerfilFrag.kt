@@ -74,11 +74,19 @@ class PerfilFrag : Fragment() {
                     bardataset.color = resources.getColor(R.color.transparent)
                     val datacon = ArrayList<BarDataSet>()
                     datacon.add(bardataset)
+                    val colors = ArrayList<Int>()
+                    colors.add(Color.rgb(28,147,242))
+                    colors.add(Color.rgb(150,201,0))
+                    colors.add(Color.rgb(255,187,47))
+                    colors.add(Color.rgb(255,138,0))
+                    colors.add(Color.rgb(208,0,0))
+                    bardataset.colors = colors
+                    bardataset.setColors(colors)
                     try {
                         val data =BarData(xvalue, datacon as List<IBarDataSet>?)
                         barChart.data= data
                         barChart.setBackgroundColor(resources.getColor(R.color.white))
-                        bardataset.setColors(ColorTemplate.COLORFUL_COLORS)
+                        bardataset.setColors(colors)
                         barChart.setDescription("")
                         barChart.animateXY(2000, 2000)
                     }catch (e: NullPointerException){
@@ -138,14 +146,14 @@ class PerfilFrag : Fragment() {
                         piechartentry.add(Entry(item, i))
                     }
                     val colors = ArrayList<Int>()
-                    colors.add(Color.GRAY)
-                    colors.add(Color.LTGRAY)
-                    colors.add(Color.DKGRAY)
-                    colors.add(Color.YELLOW)
-                    colors.add(Color.MAGENTA)
+                    colors.add(Color.rgb(28,147,242))
+                    colors.add(Color.rgb(150,201,0))
+                    colors.add(Color.rgb(255,187,47))
+                    colors.add(Color.rgb(255,138,0))
+                    colors.add(Color.rgb(208,0,0))
                     val piedataset = PieDataSet(piechartentry, "")
                     piedataset.colors = colors
-                    piedataset.setColors(ColorTemplate.COLORFUL_COLORS)
+                    piedataset.setColors(colors)
                     piedataset.sliceSpace = 3f
                     val data = PieData(xvalue, piedataset)
                     try {
