@@ -25,6 +25,9 @@ class InicPerfilFrag : Fragment() {
         val view = _binding!!.root
         Auth = FirebaseAuth.getInstance()
         _binding!!.tvUser.text=Auth.currentUser.displayName
+        //println(Auth.currentUser.photoURL)
+        //_binding!!.profileImage.setImageURI(Auth.currentUser.photoURL)
+        //_binding!!.profileImage
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -168,8 +168,8 @@ class MusicaFrag: Fragment() {
     private fun configurarGifMusica() {
         //Aqui se crean 3 audios para los efectos de los gif
         val audioAttributes = AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build()
         soundPool = SoundPool.Builder()
                 .setMaxStreams(2)
@@ -184,15 +184,15 @@ class MusicaFrag: Fragment() {
         when (num){
             1 -> {//mar
                 soundPool.autoPause()
-                soundPool.play(water, 1F, 1F, 0, -1, 1F)
+                soundPool.play(water, 150F, 150F, 0, -1, 1F)
             }
             2 -> {//FUEGO
                 soundPool.autoPause()
-                soundPool.play(fire, 1F, 1F, 0, -1, 1F)
+                soundPool.play(fire, 100F, 100F, 0, -1, 1F)
             }
             3 -> {//LLuvia
                 soundPool.autoPause()
-                soundPool.play(rain, 1F, 1F, 0, -1, 1F)
+                soundPool.play(rain, 0.2F, 0.2F, 0, -1, 1F)
             }
             4 -> {//nada
                 soundPool.autoPause()
