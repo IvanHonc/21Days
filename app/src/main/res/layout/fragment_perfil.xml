@@ -47,6 +47,18 @@
                     android:textColor="@color/cardview_dark_background" />
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/imgBRegresar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/purple_500"
+                android:onClick="returnPerfil"
+                android:src="@drawable/abc_vector_test"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <com.github.mikephil.charting.charts.BarChart
                 android:layout_width="match_parent"
                 android:layout_height="228dp"
