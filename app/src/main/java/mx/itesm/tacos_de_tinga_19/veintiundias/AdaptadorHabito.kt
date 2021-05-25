@@ -21,9 +21,11 @@ class AdaptadorHabito (private val habits : List<Habito>, val _Auth: FirebaseAut
     inner class ViewLine(val viewLineCard: View) :
         RecyclerView.ViewHolder(viewLineCard) {
         fun setCard(habito: Habito) {
+
+            println(TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS))
             viewLineCard.tvHabitoTitle.text = habito.name
-            viewLineCard.tvHabitoTiempo.text = (21 - TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)).toString()
-            viewLineCard.pbDiasHabito.setProgress((21 - TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)).toInt())
+            viewLineCard.tvHabitoTiempo.text = (21 - Math.abs(TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS))).toString()
+            viewLineCard.pbDiasHabito.setProgress((Math.abs(TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS))).toInt())
             viewLineCard.delete.setOnClickListener {
                 controller.deleteHabits(Auth.currentUser.uid, habito.name);
             }
