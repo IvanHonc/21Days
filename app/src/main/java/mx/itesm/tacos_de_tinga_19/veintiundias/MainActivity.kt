@@ -13,8 +13,6 @@ import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.ActivityMainBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-// Autor: Bruno Hae sal Vázquez Hwang
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -90,9 +88,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun signOut() {
-        AuthUI.getInstance().signOut(this)
-        val intMainActivity = Intent(baseContext, UserSignIn::class.java)
-        startActivity(intMainActivity)
+        AuthUI.getInstance().signOut(this).addOnCompleteListener{
+            val intMainActivity = Intent(baseContext, UserSignIn::class.java)
+            startActivity(intMainActivity)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
