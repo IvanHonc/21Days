@@ -14,7 +14,7 @@ import mx.itesm.tacos_de_tinga_19.veintiundias.databinding.FragmentMusicaBinding
 
 class InicPerfilFrag : Fragment() {
     private var _binding: FragmentInicPerfilBinding? = null
-    private lateinit var Auth: FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,11 +23,8 @@ class InicPerfilFrag : Fragment() {
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentInicPerfilBinding.inflate(inflater, container, false)
         val view = _binding!!.root
-        Auth = FirebaseAuth.getInstance()
-        _binding!!.tvUser.text=Auth.currentUser.displayName
-        //println(Auth.currentUser.photoURL)
-        //_binding!!.profileImage.setImageURI(Auth.currentUser.photoURL)
-        //_binding!!.profileImage
+        mAuth = FirebaseAuth.getInstance()
+        _binding!!.tvUser.text = mAuth.currentUser.displayName
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
