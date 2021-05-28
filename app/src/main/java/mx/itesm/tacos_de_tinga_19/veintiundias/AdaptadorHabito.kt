@@ -26,7 +26,7 @@ class AdaptadorHabito (private val habits : List<Habito>, val _Auth: FirebaseAut
             if(TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)>21)
                 days = 21
             else
-                days = TimeUnit.DAYS.convert(habito.startDate.time - Calendar.getInstance().time.time, TimeUnit.MILLISECONDS)
+                days = TimeUnit.DAYS.convert( Calendar.getInstance().time.time - habito.startDate.time, TimeUnit.MILLISECONDS)
             viewLineCard.tvHabitoTitle.text = habito.name
             viewLineCard.tvHabitoTiempo.text = days.toString()
             viewLineCard.pbDiasHabito.setProgress(21-days.toInt())
