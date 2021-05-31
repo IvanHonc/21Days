@@ -9,15 +9,13 @@ import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_perfil.*
-import java.lang.NullPointerException
-import java.util.ArrayList
+import java.util.*
 
 class PerfilFrag : Fragment() {
     private lateinit var Auth: FirebaseAuth
@@ -88,6 +86,8 @@ class PerfilFrag : Fragment() {
                         barChart.setBackgroundColor(resources.getColor(R.color.white))
                         bardataset.setColors(colors)
                         barChart.setDescription("")
+                        val legend: Legend = barChart.getLegend()
+                        legend.position = Legend.LegendPosition.ABOVE_CHART_CENTER
                         barChart.animateXY(2000, 2000)
                     }catch (e: NullPointerException){
                         println("error: barchart null")
@@ -162,6 +162,9 @@ class PerfilFrag : Fragment() {
                         piechart.holeRadius = 5f
                         piechart.setBackgroundColor(resources.getColor(R.color.white))
                         piechart.setDescription("")
+                        val legend: Legend = piechart.getLegend()
+                        legend.form = Legend.LegendForm.CIRCLE
+                        legend.position = Legend.LegendPosition.ABOVE_CHART_CENTER
                         piechart.animateY(2000)
                     }catch(e: NullPointerException){
                         println("error: barchart null")
