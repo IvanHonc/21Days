@@ -43,9 +43,10 @@ class AcercaDe : Fragment() {
                 " un elemento más de la aplicación.<br><br>"+
 
 
-                "<br><b>Diseño:</b><br>"+
-                "<a href=\"https://instagram.com/chofsart?igshid=sf45m5r9fpgy\">https://instagram.com/chofsart?igshid=sf45m5r9fpgy</a><br><br>"+
-
+                "<br><b>Arte:</b><br>"+
+                "Sofía Rodríguez López<br>"+
+                "<a href=\"https://instagram.com/chofsart?igshid=sf45m5r9fpgy\">Instagram </a>"+
+                "<br><br>"+
 
                 "<br><b>Licencia de las gráficas:</b><br>"+
                 "Copyright [2020] [Philip Jahoda]<br>" +
@@ -88,7 +89,8 @@ class AcercaDe : Fragment() {
                 "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER " +
                 "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, " +
                 "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE " +
-                "SOFTWARE."
+                "SOFTWARE.<br><br>"
+
         tVTextoGeneral.text = Html.fromHtml(texto)
     }
 
