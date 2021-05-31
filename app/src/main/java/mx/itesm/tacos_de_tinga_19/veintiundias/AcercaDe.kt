@@ -35,13 +35,21 @@ class AcercaDe : Fragment() {
         val text = tVTextoGeneral
         text.movementMethod = LinkMovementMethod.getInstance()
         val texto = "<b>"+"¿Qué es nuestra aplicación?"+"</b><br>"+
-                "Nuestra aplicación es una ayuda para que se creen buenos habitos, estudios dicen que se " +
-                "requieren 21 días para poder acostumbrarnos y crear un nuevo habito y consideramos" +
-                " que con nuestra aplicación esta tarea puede facilitarse.<br><br>" +
+                "Nuestra aplicación es una herramienta para construir hábtios y fomentar" +
+                " un mejor estado de ánimo. Con base en nuestra investigación encontramos que" +
+                " 21 días es el tiempo que se requiere para adoptar un hábito nuevo, de ahí nace" +
+                " nuestro nombre.<br><br>" +
                 "<b>"+"¿Por qué el mapache?"+"</b><br>"+
-                "El mapache es un animal que relaja y nos gusto mucho la idea de usarlo como" +
-                " un elemento más de la aplicación.<br><br>"+
+                "El mapache nació como nuestro logo debido a que es un animal que representa un estado" +
+                " de calma y de paz, por lo que hace perfecta sinergía con nuestra aplicación.<br><br>"+
 
+                "<br><b>Nuestro equipo:</b><br>"+
+                "Ivan Honc Ayón<br>"+
+                "Bruno Hae sal Vázquez Hwang<br>"+
+                "Viviana Osorio Nieto<br>"+
+                "Jesús Emmanuel Alcalá Nava<br>"+
+                "Emiliano Heredia García<br>"+
+                "<br>"+
 
                 "<br><b>Arte:</b><br>"+
                 "Sofía Rodríguez López<br>"+
@@ -68,7 +76,7 @@ class AcercaDe : Fragment() {
                 "limitations under the License.<br><br>"+
 
 
-                "<br><b>Licencia del Calendario:</b><br>"+
+                "<br><b>Licencia del calendario:</b><br>"+
                 "The MIT License (MIT)<br>" +
                 "<br>" +
                 "Copyright (c) [2018] [Sundeepk]<br>" +
