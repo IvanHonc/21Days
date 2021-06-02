@@ -31,6 +31,22 @@
           }
         },
         {
+          "client_id": "698610368389-dsos2bfp1grrsi6saifojepjlda3js71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "c4d5b21df6ebaa45e7498b94713e2eb89a51fcc1"
+          }
+        },
+        {
+          "client_id": "698610368389-iq90m46nmupchcc6anvbelur9kmobgna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.tacos_de_tinga_19.veintiundias",
+            "certificate_hash": "f8b72e775e2a2cf52c639719fe3fec69c3da56d0"
+          }
+        },
+        {
           "client_id": "698610368389-k3ri1qu4c1uohgtaridjdjp3vfqkc4ui.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
