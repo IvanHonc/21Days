@@ -69,7 +69,11 @@ class PerfilFrag : Fragment() {
                         barentries.add(BarEntry(yax[i], i))
                     }
                     val bardataset = BarDataSet(barentries, "")
-                    bardataset.color = resources.getColor(R.color.transparent)
+                    try{
+                        bardataset.color = resources.getColor(R.color.transparent)
+                    } catch (e: Exception) {
+                        println("error: barchart null")
+                    }
                     val datacon = ArrayList<BarDataSet>()
                     datacon.add(bardataset)
                     val colors = ArrayList<Int>()
@@ -89,7 +93,7 @@ class PerfilFrag : Fragment() {
                         val legend: Legend = barChart.getLegend()
                         legend.position = Legend.LegendPosition.ABOVE_CHART_CENTER
                         barChart.animateXY(2000, 2000)
-                    }catch (e: NullPointerException){
+                    } catch (e: NullPointerException){
                         println("error: barchart null")
                     }
                 }
